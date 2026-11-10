@@ -1,0 +1,9 @@
+.devnet/
+.vendor/
+bin/
+node_modules/
+*.log
+.env*
+__pycache__/
+
+apps/portal/ethers.js

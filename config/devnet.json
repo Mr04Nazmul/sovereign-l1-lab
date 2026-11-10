@@ -1,0 +1,13 @@
+{
+  "name": "SAMBA",
+  "symbol": "SAMBA",
+  "chain_id": "7357111",
+  "base_denom": "asamba",
+  "display_denom": "samba",
+  "decimals": 18,
+  "validator_count": 4,
+  "validator_allocation_base_units": "1000000000000000000000000",
+  "validator_self_bond_base_units": "10000000000000000000000",
+  "faucet_allocation_base_units": "10000000000000000000000000",
+  "purpose": "Valueless private devnet; not mainnet tokenomics"
+}
