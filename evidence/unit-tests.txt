@@ -1,0 +1,16 @@
+
+> test
+> node --test tests/*.test.mjs
+
+✔ reject admin, debug, unlock and batch requests (0.839979ms)
+✔ reject malformed addresses, signatures and oversized requests (0.798456ms)
+✔ allow bounded normal RPC request (0.176905ms)
+✔ wallet has no third party scripts or private-key persistence (0.908281ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 174.449612

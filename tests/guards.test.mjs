@@ -1,0 +1,6 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {validateRpc,validAddress} from '../services/guards.mjs';
+test('reject admin, debug, unlock and batch requests',()=>{for(const method of ['personal_unlockAccount','admin_addPeer','debug_traceTransaction','eth_sendTransaction'])assert.throws(()=>validateRpc({jsonrpc:'2.0',method,params:[]}));assert.throws(()=>validateRpc([]));});
+test('reject malformed addresses, signatures and oversized requests',()=>{assert.throws(()=>validAddress('../secret'));assert.throws(()=>validateRpc({jsonrpc:'2.0',method:'eth_sendRawTransaction',params:['not-signed']}));assert.throws(()=>validateRpc({jsonrpc:'2.0',method:'eth_getBalance',params:['0x123']}));assert.throws(()=>validateRpc({jsonrpc:'2.0',method:'eth_call',params:['a'.repeat(140000)]}));});
+test('allow bounded normal RPC request',()=>{const x={jsonrpc:'2.0',id:1,method:'eth_chainId',params:[]};assert.equal(validateRpc(x),x);});
+test('wallet has no third party scripts or private-key persistence',async()=>{const fs=await import('node:fs');const html=fs.readFileSync('apps/portal/index.html','utf8'),js=fs.readFileSync('apps/portal/app.js','utf8');assert(!/https?:\/\/.*<script/.test(html));assert(!/localStorage|sessionStorage|indexedDB/.test(js));assert(js.includes('wallet.encrypt(pass)'));assert(!/JSON.stringify\(wallet/.test(js));});

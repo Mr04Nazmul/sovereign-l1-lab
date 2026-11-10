@@ -1,0 +1,22 @@
+{
+  "name": "samba-l1-lab",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "portal": "node services/gateway.mjs",
+    "integration": "node tests/integration.mjs",
+    "compile": "node scripts/compile.mjs",
+    "dev": "bash scripts/serve.sh"
+  },
+  "dependencies": {
+    "ethers": "6.17.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12",
+    "solc": "0.8.38"
+  },
+  "overrides": {
+    "tmp": "0.2.7"
+  }
+}

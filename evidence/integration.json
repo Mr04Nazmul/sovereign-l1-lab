@@ -1,0 +1,109 @@
+{
+  "startedAt": "2026-11-10T14:23:22.343Z",
+  "chainId": 7357111,
+  "tests": [
+    {
+      "name": "four real nodes produce blocks and report independent chain ID",
+      "status": "passed",
+      "durationMs": 5697
+    },
+    {
+      "name": "signed native transfer charges fee and records receipt across nodes",
+      "status": "passed",
+      "durationMs": 785
+    },
+    {
+      "name": "wrong-chain replay, unsigned payload, and insufficient balance are rejected",
+      "status": "passed",
+      "durationMs": 22
+    },
+    {
+      "name": "nonce reuse and competing double spend cannot execute twice",
+      "status": "passed",
+      "durationMs": 1576
+    },
+    {
+      "name": "Solidity deployment, state mutation, logs and receipt",
+      "status": "passed",
+      "durationMs": 3194
+    },
+    {
+      "name": "encrypted wallet keystore roundtrip and wrong-password rejection",
+      "status": "passed",
+      "durationMs": 1399
+    },
+    {
+      "name": "gateway explorer, RPC validation and persistent faucet rate limit",
+      "status": "passed",
+      "durationMs": 2241
+    },
+    {
+      "name": "one validator outage retains greater than two-thirds quorum",
+      "status": "passed",
+      "durationMs": 7612
+    },
+    {
+      "name": "loss of two validators halts finalization; recovery resumes consensus",
+      "status": "passed",
+      "durationMs": 12628
+    },
+    {
+      "name": "offline validator catches up with matching block hash",
+      "status": "passed",
+      "durationMs": 3590
+    }
+  ],
+  "transactions": [
+    {
+      "kind": "native-transfer",
+      "hash": "0xb2bb587d1acdfc920146096b0e8026c45175ef287eb0c11ef87c6fdb3b460254",
+      "blockNumber": 24,
+      "blockHash": "0x73d6cfe1b33ca69ab2da4e4a486648f39fdc7d39289fb04175b41f53f47eccc2",
+      "fee": "1097579700000"
+    },
+    {
+      "kind": "nonce-test-transfer",
+      "hash": "0x3216db8cd3955f0c4a3e282d9b3085544ce7cb742c47ba5f0a8608dc5725ccf3"
+    },
+    {
+      "kind": "contract-deploy",
+      "hash": "0x03e45acf610417500263422890068671b4d42c442d4b742bee44588521abe248"
+    },
+    {
+      "kind": "contract-call",
+      "hash": "0xe02df4ae52286a68eb065c79403a979e7773730bdf0cafd80bf0bd1f0b38c95e",
+      "blockNumber": 28
+    },
+    {
+      "kind": "faucet",
+      "hash": "0xd6758b53c3e450b39b0e9d9fb3131d3f46ee2014c52931b843aa128adc7e4923"
+    }
+  ],
+  "genesisHash": "0x89ccbcf63603bc1fca12d79be59146941e65b991a3906912a61eb431cfe09406",
+  "validatorCount": "4",
+  "contract": "0xe4AbcC799B921FFb33b3590837a3714DbD813898",
+  "quorumHaltHeight": 34,
+  "synchronizedHeight": 35,
+  "synchronizedBlockHash": "0xbfacf1816898e98df2d523eacec02b3f87a848ac64d17ade7396146e8077d11f",
+  "finalHeights": [
+    36,
+    36,
+    36,
+    35
+  ],
+  "totalSupply": {
+    "supply": [
+      {
+        "denom": "asamba",
+        "amount": "14000000000000000000000000"
+      }
+    ],
+    "pagination": {
+      "total": "1"
+    }
+  },
+  "completedAt": "2026-11-10T14:24:01.888Z",
+  "status": "passed",
+  "genesisHashAlgorithm": "keccak256",
+  "genesisSha256": "570056727948eb1402103b4be96a7c257b49ee0b2dfbf32c13d7cbfe7f0b0784"
+}

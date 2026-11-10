@@ -1,0 +1,58 @@
+name: SAMBA devnet verification
+on:
+  push:
+    branches: [main, 'feat/**']
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  private-devnet:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff
+        with:
+          go-version: '1.26.10'
+          cache: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npm run compile
+      - run: npm test
+      - run: npm audit --audit-level=low
+      - run: bash scripts/build.sh
+      - run: python3 scripts/devnet.py init
+      - run: bash scripts/run-checks.sh
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: devnet-evidence
+          path: |
+            evidence/integration.json
+            evidence/unit-tests.txt
+  dependency-security-gate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff
+        with:
+          go-version: '1.26.10'
+          cache: false
+      - run: bash scripts/build.sh
+      - run: go install golang.org/x/vuln/cmd/govulncheck@v1.1.4
+      - name: Fail on unresolved upstream binary advisories
+        run: govulncheck -mode=binary bin/evmd > evidence/govulncheck.txt 2>&1
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: vulnerability-evidence
+          path: evidence/govulncheck.txt

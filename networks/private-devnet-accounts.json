@@ -1,0 +1,13 @@
+{
+  "chainId": 7357111,
+  "denom": "asamba",
+  "symbol": "SAMBA",
+  "decimals": 18,
+  "validators": [
+    "cosmos1rjhpsz5gz3crc9te6wthd9yv2d6kr46hjdzxuv",
+    "cosmos1ymdalu03uvvxfqwnpjfttsra8d0jdedw2kt8ew",
+    "cosmos1p69waexz4ka4y9x7xxw3ftvug7ed7jtnsavwdv",
+    "cosmos1t3xjalwvsjch3vzsatrak2ejgygr9h9up6zlcy"
+  ],
+  "faucet": "cosmos1crxynenny5cwc92uz4s4nsx0s8c4473zzda4me"
+}

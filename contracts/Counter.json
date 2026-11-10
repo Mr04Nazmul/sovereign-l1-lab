@@ -1,0 +1,54 @@
+{
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "sender",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "value",
+          "type": "uint256"
+        }
+      ],
+      "name": "Changed",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "next",
+          "type": "uint256"
+        }
+      ],
+      "name": "set",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "value",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "evm": {
+    "bytecode": {
+      "object": "6080604052348015600f57600080fd5b5060ed8061001e6000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c80633fa4f24514603757806360fe47b1146051575b600080fd5b603f60005481565b60405190815260200160405180910390f35b6060605c366004609f565b6062565b005b600081905560405181815233907fb52dda022b6c1a1f40905a85f257f689aa5d69d850e49cf939d688fbe5af59469060200160405180910390a250565b60006020828403121560b057600080fd5b503591905056fea26469706673582212209ee6a906a801560605040f32eca17c128275baa8b49ed301236e27805e2f1b9564736f6c63430008260033"
+    }
+  }
+}
